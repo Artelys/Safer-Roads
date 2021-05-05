@@ -1,0 +1,43 @@
+version: '3.2'
+services:
+  flask:
+    image: artelys/saferroads/flask:1.0
+    build:
+      context: ../flask
+    depends_on:
+      - elastic
+    ports:
+      - "5000"
+
+  elastic:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.4.1
+    environment:
+      - discovery.type=single-node
+      #- "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data-es:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+
+  kibana:
+    image: artelys/saferroads/kibana:1.0
+    build:
+      context: ../kibana
+    depends_on:
+      - elastic
+    ports:
+      - "5601:5601"
+    volumes:
+      - ./data:/tmp/data
+    environment:
+      SERVER_NAME: kibana
+      ELASTICSEARCH_HOSTS: http://elastic:9200
+
+
+volumes:
+  data-es: 
+  

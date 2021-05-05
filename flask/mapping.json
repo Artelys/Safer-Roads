@@ -1,0 +1,507 @@
+{
+	"context_prediction":{
+		"mappings":{
+			"properties":{
+				"Date": {
+					"type": "date",
+					"format": "yyyy-MM-dd HH:mm:ss"
+				},
+				"Pluviometrie 1h":{
+					"type":"long"
+				},
+				"Temperature":{
+					"type":"long"
+				},
+				"Pluviometrie 6h":{
+					"type":"long"
+				},
+				"Pression 0m":{
+					"type":"long"
+				},
+				"Direction Vent":{
+					"type":"long"
+				},
+				"Vitesse Vent":{
+					"type":"long"
+				},
+				"Creneau_Horaire":{
+					"type":"text",
+					"fields":{
+						"keyword":{
+							"type":"keyword",
+							"ignore_above":256
+						}
+					}
+				}
+
+			}
+		}
+	},
+	"infos-indexes":{
+		"mappings":{
+			"properties":{
+				"name":{
+					"type":"text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+					}
+				},
+				"date": {
+					"type": "date",
+					"format": "yyyy-MM-dd HH:mm:ss"
+				},
+				"category":{
+					"type":"text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+					}
+				},
+				"harmonise":{
+					"type":"long"
+				}
+			}
+		}
+	},
+	"error-indexes":{
+		"mappings":{
+			"properties":{
+				"name":{
+					"type":"text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+					}
+				},
+				"date": {
+					"type": "date",
+					"format": "yyyy-MM-dd HH:mm:ss"
+				}
+			}
+		}
+	},
+	"infos_routes":{
+		"mappings": {
+			"properties": {
+				"LINK_ID":{
+					"type":"integer"
+				},
+				"Trafic": {
+					"type": "float"
+				},
+				"AverageSpeed": {
+					"type": "float"
+				 },
+				"BaseSpeed": {
+					"type": "float"
+				},
+				"TRAVEL_DIRECTION": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						}
+					}
+				},
+				"Date": {
+					"type": "date",
+					"format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||dd/MM/yyyy||dd/MM/yyyy HH:mm:ss"
+				},
+				"EdgeFCID": {
+					"type": "long"
+				},
+				"EdgeFID": {
+					"type": "long"
+				},
+				"EdgeFrmPos": {
+					"type": "long"
+				},
+				"EdgeToPos": {
+					"type": "long"
+				}
+			}
+		}
+	},
+	"voirie_de_reference":{
+		"mappings": {
+			  "properties": {
+				  "geometry": {
+					  "type": "geo_shape",
+					  "tree":"quadtree",
+					  "precision": "1m"
+				},
+				"LINK_ID":{
+					"type":"integer"
+				},
+				"SPEED_CAT" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"ST_NAME" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"ST_NAME_Alt" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"FUNC_CLASS" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"N_SHAPEPNT" : {
+				  "type" : "long"
+				},
+				"Shape_Length" : {
+				  "type" : "float"
+				},
+				"PRIORITYRD" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"PRIVATE" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"PAVED" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"ROUNDABOUT" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"FRONTAGE" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"TOLLWAY" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"BRIDGE" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"TUNNEL" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"RAMP" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"CONTRACC" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"POIACCESS" : {
+				  "type" : "text",
+				  "fields" : {
+					"keyword" : {
+					  "type" : "keyword",
+					  "ignore_above" : 256
+					}
+				  }
+				},
+				"Meters" : {
+				  "type" : "float"
+				}
+			}
+		}
+	},
+	"zones":{
+		"mappings": {
+			  "properties": {
+				  "geometry": {
+					  "type": "geo_shape",
+					  "tree":"quadtree",
+					  "precision": "1m"
+					},
+				  "CODE_18": {
+					"type": "text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+					}
+				  },
+				  "POLYGON_NM": {
+					"type": "text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+					}
+				  },
+				  "ID": {
+					"type": "text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+					}
+				  },
+				  "AREA_ID": {
+					"type": "long"
+				  }
+			}
+		}
+	},
+	"contexte":{
+		"mappings": {
+			"properties": {
+				  "Date": {
+					"type": "date",
+					"format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||dd/MM/yyyy||dd/MM/yyyy HH:mm:ss||dd/MM/yyyy HH:mm||ddLLLyyyy"
+					},
+					"Temperature": {
+						"type": "float"
+					},
+					"Pluviometrie 6h": {
+						"type": "float"
+					},
+					"Pluviometrie 1h": {
+						"type": "float"
+					},
+					"Dew Point Temperature": {
+						"type": "float"
+					},
+					"Vitesse Vent": {
+						"type": "float"
+					},
+					  "Couverture Nuageuse": {
+						"type": "long"
+					  },
+					  "Pression 0m": {
+						"type": "long"
+					  }
+				}
+			}
+		},
+	"positions":{
+		"mappings": {
+			  "properties": {
+				  "geometry": {
+					  "type": "geo_point"
+				},
+				"Date": {
+					"type": "date",
+					"format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||dd/MM/yyyy||dd/MM/yyyy HH:mm:ss||dd/MM/yyyy HH:mm"
+					},
+				  "ID": {
+					"type": "text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+					}
+				  }
+			}
+		}
+	},
+	"accidents_corporels":{
+		"mappings": {
+			"properties": {
+				  "Date": {
+					"type": "date",
+					"format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||dd/MM/yyyy||dd/MM/yyyy HH:mm:ss||ddLLLyyyy||dd/MM/yyyy HH:mm"
+					},
+					"geometry": {
+					  "type": "geo_point"
+					},
+					"ID_BAAC" : {
+						"type": "text",
+						"fields": {
+						  "keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						  }
+						}
+					},
+					"Distance" : {
+						"type":"integer"
+					},
+					"LONGITUDE":{
+						"type":"float"
+					},
+					"LATITUDE":{
+						"type":"float"
+					}
+				}
+			}
+		},
+		"accidents_materiels":{
+			"mappings": {
+				"properties": {
+				  	"Date": {
+						"type": "date",
+						"format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||dd/MM/yyyy||dd/MM/yyyy HH:mm:ss||dd/MM/yyyy HH:mm||ddLLLyyyy||dd/MM/yyyy HH:mm"
+					},
+					"geometry": {
+					  	"type": "geo_point"
+					},
+					"LONGITUDE":{
+						"type":"float"
+					},
+					"LATITUDE":{
+						"type":"float"
+					},
+					"ID":{
+						"type": "text",
+						"fields": {
+						  "keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						  }
+						}
+					},
+					"Libellé":{
+						"type": "text",
+						"fields": {
+						  "keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						  }
+						}
+					},
+					"ResultID" : {
+						"type": "text",
+						"fields": {
+						  "keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						  }
+						}
+					},
+					"ShortLabel" : {
+						"type": "text",
+						"fields": {
+						  "keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						  }
+						}
+					},
+					"RSP_CAS_BRM_IDA" : {
+						"type": "text",
+						"fields": {
+						  "keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						  }
+						}
+					},
+					"Score" : {
+						"type": "text",
+						"fields": {
+						  "keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						  }
+						}
+					},
+					"Modèle du véhicule" : {
+						"type": "text",
+						"fields": {
+						  "keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						  }
+						}
+					},
+					"AddNum" : {
+						"type": "text",
+						"fields": {
+						  "keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						  }
+						}
+					}
+				}
+			}
+		}
+}

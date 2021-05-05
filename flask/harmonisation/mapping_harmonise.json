@@ -1,0 +1,172 @@
+{	"here":{
+			"properties":{
+				"geometry":{
+					"type":"geo_shape",
+					"tree":"quadtree",
+					"precision":"1m"
+				},
+				"trafic_matin":{
+					"type":"long"
+				},
+				"trafic_jour":{
+					"type":"long"
+				},
+				"trafic_soir":{
+					"type":"long"
+				},
+				"trafic_nuit":{
+					"type":"long"
+				},
+				"vitesse_matin":{
+					"type":"long"
+				},
+				"vitesse_jour":{
+					"type":"long"
+				},
+				"vitesse_soir":{
+					"type":"long"
+				},
+				"vitesse_nuit":{
+					"type":"long"
+				}
+			}
+	},
+	"meteo":{
+		"properties":{
+			  "Date": {
+				"type": "date",
+				"format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||dd/MM/yyyy||dd/MM/yyyy HH:mm:ss||ddLLLyyyy||dd/MM/yyyy HH:mm"
+				}
+		}
+	},
+	"admin":{
+            "properties":{
+				"geometry":{
+					"type":"geo_shape",
+					"tree":"quadtree",
+					"precision":"1m"
+				}
+		}
+	},
+	"corine":{
+		"properties":{
+				"geometry":{
+					"type":"geo_shape",
+					"tree":"quadtree",
+					"precision":"1m"
+				}
+		}
+	},
+    "street_pattern":{
+    },
+    "trafic":{
+    },
+	"accidents":{
+		"properties": {
+			  "Date": {
+				"type": "date",
+				"format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis||dd/MM/yyyy||dd/MM/yyyy HH:mm:ss||ddLLLyyyy||dd/MM/yyyy HH:mm"
+				},
+				"code_postal":{
+					"type":"integer"
+				},
+				"ida" : {
+					"type": "text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+					}
+				},
+				"RSP_CAS_BRM_IDA" : {
+					"type": "text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+					}
+				},
+				"Modèle du véhicule" : {
+					"type": "text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+					}
+				},
+				"Match_addr" : {
+					"type": "text"
+				},
+				"ShortLabel" : {
+					"type": "text"
+				},
+				"AddNum" : {
+					"type": "text"
+				},
+				"PlaceName" : {
+					"type": "text"
+				},
+				"point" : {
+					"type": "geo_point"
+				},
+				"geometry":{
+					"type": "geo_shape",
+					"tree": "quadtree",
+					"precision":"1m"
+				},
+				"geometry_commune":{
+					"type":"geo_shape",
+					"tree":"quadtree",
+					"precision":"1m"
+				},
+				"USER_W1":{
+					"type":"text"
+				},
+				"Score":{
+					"type":"text"
+				},
+				"id_corporel" : {
+					"type": "long"
+				},
+				"id_materiel" : {
+					"type": "long"
+				},
+				"id_waze":{
+					"type":"long"
+				},
+				"id_coyote":{
+					"type":"long"
+				},
+				"id_sdis":{
+					"type":"long"
+				},
+				"RANG":{
+					"type":"long"
+				},
+				"Rank":{
+					"type":"text"
+				},
+				"ID_ACCIDENT":{
+					"type":"text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+					}
+				},
+				"ID_INCIDENT":{
+					"type":"text",
+					"fields": {
+					  "keyword": {
+						"type": "keyword",
+						"ignore_above": 256
+					  }
+				}
+			}
+		}
+	}
+}

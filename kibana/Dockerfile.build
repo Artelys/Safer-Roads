@@ -1,0 +1,36 @@
+FROM node:10.15.2-stretch
+
+RUN apt-get update
+RUN apt-get -y install bash git
+RUN adduser kibana --disabled-password
+USER kibana
+WORKDIR /home/kibana
+
+RUN git clone --branch 7.4 https://github.com/elastic/kibana.git kibana
+WORKDIR /home/kibana/kibana
+
+RUN git checkout d2a2b0fec1e915117b194932d7854ef9d9979fe5
+
+COPY data_management /home/kibana/kibana/plugins/data_management
+COPY risk_prediction /home/kibana/kibana/plugins/risk_prediction
+COPY build.sh /home/kibana/kibana/plugins/build.sh
+
+
+USER root
+RUN chown -R kibana:kibana /home/kibana/kibana/plugins
+RUN chmod +X /home/kibana/kibana/plugins/build.sh
+
+user kibana
+# il faudra monter les répertoires builds pour récupérer les sorties
+RUN ls -alh /home/kibana/kibana/plugins
+RUN mkdir /home/kibana/kibana/plugins/data_management/build/
+RUN mkdir /home/kibana/kibana/plugins/risk_prediction/build/
+
+RUN yarn kbn bootstrap
+
+
+
+WORKDIR /home/kibana/kibana/plugins
+
+#CMD  ["sh", "-c","tail -f /dev/null"]
+CMD  ["/bin/bash","/home/kibana/kibana/plugins/build.sh"]
